@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html ng-app='killers'>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+    <title>killers</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <link href='https://fonts.googleapis.com/css?family=Armata' rel='stylesheet' type='text/css'>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js"></script>
+    <script src="js/killersController.js" charset="utf-8"></script>
+    <script src="js/spacey.js" charset="utf-8"></script>
+    
+</head>
+<header id="header">
+</header>
+
+<body>
+    <h1 class="game"></h1>
+
+    <section ng-controller="KillersController as killers">
+        <container class="formFluid">
+            <form class="add-killer" ng-submit='killers.addKiller()'>
+                <h2 class="hero">REAL KILLERS</h2>
+                <div class="row">
+                    <label class="col-sm-5 col-md-5 col-lg-5" id="label" for="new-killer-name">NAME of KILLER</label>
+                    <div class="textBox">
+                        <input style="font-size: .6em; padding:.5em;" class="col-sm-5 col-md-4 col-lg-4" type="text" id="new-killer-name" placeholder="killer's name" ng-model="killers.newKiller.name">
+                    </div>
+                </div>
+                <br>
+
+                <div class="row">
+                    <label class="col-sm-5 col-md-5 col-lg-5" id="label" for="new-killer-start">DATE of FIRST KILL</label>
+                    <div class="textBox">
+                        <input style="font-size: .6em; padding:.5em;" class="col-sm-5 col-md-4 col-lg-4" type="text" id="new-killer-start" placeholder="date of first kill" ng-model='killers.newKiller.start'>
+                    </div>
+                </div>
+                <br>
+
+                <div class="row">
+                    <label class="col-sm-5 col-md-5 col-lg-5" id="label" for="new-killer-end">DATE of LAST KILL</label>
+                    <div class="textBox">
+                        <input style="font-size: .6em; padding:.5em;" class="col-sm-5 col-md-4 col-lg-4" class="placeHolder" type="text" id="new-killer-end" placeholder="date of last kill" ng-model='killers.newKiller.end'>
+                    </div>
+                </div>
+                <br>
+                <div class="row">
+                    <label class="col-sm-5 col-md-5 col-lg-5" id="label" for="new-killer-backStory">METHOD of KILLER</label>
+                    <div class="textBox">
+                        <input style="font-size: .6em; padding:.5em;" class="col-sm-5 col-md-4 col-lg-4" type="text" id="new-killer-backStory" placeholder="details" ng-model='killers.newKiller.backStory'>
+                    </div>
+                </div>
+                <br>
+                <div class="row">
+                    <label class="col-sm-5 col-md-5 col-lg-5" id="label" for="new-killer-image">IMAGE of KILLER</label>
+                    <div class="textBox">
+                        <input style="font-size: .6em; padding:.5em;" class="col-sm-5 col-md-4 col-lg-4" type="text" id="new-killer-image" placeholder="image URL" ng-model='killers.newKiller.image'>
+                    </div>
+                </div>
+                <br>
+                <div class="row">
+                    <label class="col-sm-5 col-md-5 col-lg-5" id="label" for="new-killer-deathCount">NUMBER of KILLS</label>
+                    <div class="textBox">
+                        <input style="font-size: .6em; padding:.5em;" class="col-sm-5 col-md-4 col-lg-4" type="text" id="new-killer-deathCount" placeholder="body count" ng-model='killers.newKiller.deathCount'>
+                    </div>
+                </div>
+                <div class="">
+                    <input type="submit" class="btn btn-fresh" value="Add Killer">
+                </div>
+
+            </form>
+        </container>
+
+
+
+
+
+        <ul ng-repeat="killer in killers.all.reverse()">
+            <container class="index">
+                <div id="row">
+                    <div class="col-xs-8 col-sm-8 col-md-9 col-lg-9 col-center">
+                        <img src={{killer.image}}>
+                        <div class="data">
+                            <strong>{{killer.name}}</strong>
+                            <br>
+                            <em>({{killer.start}} - {{killer.end}})</em>
+                            <ul class="finePrint">{{killer.backStory}}</ul>
+                            <ul>{{killer.deathCount}} kills</ul>
+                        </div>
+                        <input ng-click="killers.deleteKiller(killer)" type="click" class="btn btn-delete" value="X">
+                    </div>
+                </div>
+            </container>
+        </ul>
+    </section>
+
+
+</body>
+
+
+</html>

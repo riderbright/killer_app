@@ -1,0 +1,119 @@
+* {
+    font-family: 'Armata', sans-serif;
+    color: rgba(18, 22, 22, .60);
+}
+
+
+.section {
+    
+}
+.add-killer {
+    font-size: 1.9em;
+    width: 27em;
+    margin-left: 1em;
+    margin-right: 0 auto;
+    margin-bottom: 1em;
+    margin-top: 0 auto;
+    position: relative;
+    float:left;
+    padding-right: -3em;}
+
+#label {
+    text-align: right;
+}
+
+.hero {
+    font-size: 3em;
+    text-align: left;
+    margin-left: .4em;
+    margin-bottom: .3em;
+    margin-top: 0;
+    position: relative;
+}
+.col-centered {
+    float: left;
+    margin: 1em;
+}
+
+
+.data {
+    font-size: 1.3em;
+    position: absolute;
+    margin: .7em;
+    margin-left: 1em;
+    margin-right: 12em;
+    text-align: right;
+    display: inline-block;
+    float:left;
+}
+img {
+    width: 25em;
+    height: 10em;
+    overflow-y: hidden;
+    overflow-x: hidden;
+    display: inline-block;
+    float: right;
+    border: 4px solid #aAaAFf;
+    margin-top: .5em;
+    margin-bottom: .5em;
+    margin-left: 1em;
+    margin-right: -12.5em;
+    object-fit: cover;
+    float:right
+}
+
+
+.index {
+    height: 300px;
+}
+
+#row {
+    height: 12.25em;
+    width:49em;
+    border: 3px solid;
+    border-color: rgba(18, 22, 22, .50);
+    overflow-y: hidden;
+    padding: .5em;
+    float: right;
+    margin-right: 8em;
+    margin-left: 3em;
+    margin-top: 1em;
+    position: relative;
+   
+    
+}
+
+
+.btn-fresh {
+    font-size: auto;
+    width: 18em;
+    background-color: rgba(18, 22, 22, .50);
+    color: #ffffff;
+    border-color: #aAaAFf;
+    border-width: 2px;
+    margin-top: 1.3em;
+    margin-left: 21.1em;
+    margin-bottom: 1em;
+}
+.btn-delete{
+    font-size: 2.5em;
+    width: 3em;
+    background-color: rgba(18, 22, 22, .20);
+    color: #ffffff;
+    border-color: #aAaAFf;
+    border-width: 2px;
+    margin-top: .4em;
+    margin-left: -.6em;
+}
+#header{
+    margin-bottom: 2em;
+}
+.finePrint{
+    font-size: .7em;
+}
+.textBox{
+    
+}
+
+
+ 
