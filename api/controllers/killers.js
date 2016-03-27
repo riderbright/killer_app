@@ -1,77 +1,77 @@
 var Killer = require('../models/Killer');
 
 // GET
-function getAll(request, response) {
+function getAll(req, res) {
     Killer.find(function (error, killers) {
-        if (error) response.json({
+        if (error) res.json({
             message: 'CAN NOT FIND KILLERS'
         });
 
-        response.json({
+        res.json({
             killers: killers
         });
     });
 }
 
 // POST
-function createKiller(request, response) {
+function createKiller(req, res) {
     console.log('in POST');
-    console.log('body:', request.body);
+    console.log('body:', req.body);
 
-    var killer = new Killer(request.body);
+    var killer = new Killer(req.body);
 
     killer.save(function (error) {
-        if (error) response.json({
+        if (error) res.json({
             messsage: ('CAN NOT FIND KILLERS' + error)
         });
 
-        response.json({
+        res.json({
             killer: killer
         });
     });
 }
 
 // GET
-function getKiller(request, response) {
-    var id = request.params.id;
+function getKiller(req, res) {
+    var id = req.params.id;
 
     Killer.findById({
         _id: id
     }, function (error, killer) {
-        if (error) response.json({
+        if (error) res.json({
             message: 'CAN NOT FIND KILLERS' + error
         });
 
-        response.json({
+        res.json({
             killer: killer
         });
     });
 }
 
-function updateKiller(request, response) {
-    var id = request.params.id;
+function updateKiller(req, res) {
+    var id = req.params.id;
 
     Killer.findById({
         _id: id
     }, function (error, killer) {
-        if (error) response.json({
+        if (error) res.json({
             message: 'CAN NOT FIND KILLERS' + error
         });
 
-        if (request.body.name) killer.name = request.body.name;
-        if (request.body.start) killer.start = request.body.start;
-        if (request.body.end) killer.end = request.body.end;
-        if (request.body.deathCount) killer.deathCount = request.body.deathCount;
-        if (request.body.backStory) killer.backStory = request.body.backstory;
-        if (request.body.image) killer.image = request.body.image;
+        if (req.body.name) killer.name = req.body.name;
+        if (req.body.start) killer.start = req.body.start;
+        if (req.body.end) killer.end = req.body.end;
+        if (req.body.deathCount) killer.deathCount = req.body.deathCount;
+        if (req.body.backStory) killer.backStory = req.body.backstory;
+        if (req.body.image) killer.image = req.body.image;
 
 
         killer.save(function (error) {
-            if (error) response.json({
+            if (error) res.json({
                 messsage: 'CAN NOT FIND KILLERS' + error
             });
 
-            response.json({
+            res.json({
                 message: 'CAN NOT FIND KILLERS',
                 killler: killer
             });
@@ -79,17 +79,17 @@ function updateKiller(request, response) {
     });
 }
 
-function removeKiller(request, response) {
-    var id = request.params.id;
+function removeKiller(req, res) {
+    var id = req.params.id;
 
     Killer.remove({
         _id: id
     }, function (error) {
-        if (error) response.json({
+        if (error) res.json({
             message: 'CAN NOT FIND KILLERS' + error
         });
 
-        response.json({
+        res.json({
             message: 'Killer deleted'
         });
     });

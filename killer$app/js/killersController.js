@@ -9,6 +9,7 @@ function KillersController($http) {
     self.newKiller = {};
     self.addKiller = addKiller;
     self.getKillers = getKillers;
+    self.getKiller = getKiller;
     self.deleteKiller = deleteKiller;
 
     
@@ -20,6 +21,14 @@ function KillersController($http) {
             });
     }
     getKillers();
+    
+    function getKiller(killer) {
+        $http
+            .get('http://localhost:3000/killers' + killer._id)
+            .then(function (response) {
+                self.getKiller = response.data.killer;
+            });
+    }
     
     function addKiller() {
         $http
